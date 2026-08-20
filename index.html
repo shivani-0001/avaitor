@@ -1,0 +1,608 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Join Our Telegram Community</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                radial-gradient(circle at top, #26305f 0%, #11162d 35%, #070914 75%);
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Background glow */
+        body::before {
+            content: "";
+            position: fixed;
+            width: 350px;
+            height: 350px;
+            background: #5865f2;
+            filter: blur(150px);
+            opacity: 0.25;
+            top: -100px;
+            left: -100px;
+            z-index: -1;
+        }
+
+        body::after {
+            content: "";
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            background: #00c6ff;
+            filter: blur(150px);
+            opacity: 0.15;
+            bottom: -100px;
+            right: -100px;
+            z-index: -1;
+        }
+
+        .container {
+            width: 92%;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        /* NAVBAR */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 0;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #29a9ea;
+        }
+
+        .status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: #b9c1d9;
+        }
+
+        .dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #31e981;
+            box-shadow: 0 0 12px #31e981;
+        }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            padding: 55px 10px 35px;
+        }
+
+        .telegram-icon {
+            width: 85px;
+            height: 85px;
+            margin: auto;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #29a9ea, #168acd);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 42px;
+            box-shadow: 0 15px 45px rgba(41, 169, 234, 0.35);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .badge {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 8px 15px;
+            border-radius: 30px;
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.12);
+            color: #8bdcff;
+            font-size: 13px;
+        }
+
+        h1 {
+            font-size: clamp(38px, 7vw, 70px);
+            line-height: 1.05;
+            margin-top: 20px;
+            font-weight: 900;
+        }
+
+        h1 span {
+            background: linear-gradient(90deg, #29a9ea, #8b7cff);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .subtitle {
+            max-width: 650px;
+            margin: 22px auto;
+            color: #aeb6d0;
+            font-size: 17px;
+            line-height: 1.7;
+        }
+
+        /* CTA */
+        .join-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+            padding: 17px 35px;
+            border-radius: 14px;
+            text-decoration: none;
+            color: white;
+            font-size: 17px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #29a9ea, #1679d2);
+            box-shadow: 0 15px 35px rgba(23, 137, 213, 0.35);
+            transition: 0.25s;
+        }
+
+        .join-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 45px rgba(23, 137, 213, 0.5);
+        }
+
+        /* TIMER */
+        .timer-section {
+            margin: 35px auto;
+            max-width: 650px;
+            padding: 22px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.055);
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(15px);
+        }
+
+        .timer-title {
+            color: #b7bfd7;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .timer {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .time-box {
+            min-width: 75px;
+            padding: 12px 10px;
+            border-radius: 12px;
+            background: rgba(0,0,0,0.25);
+        }
+
+        .time-box strong {
+            display: block;
+            font-size: 28px;
+        }
+
+        .time-box small {
+            color: #858da8;
+            font-size: 11px;
+        }
+
+        /* STATS */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .stat {
+            text-align: center;
+            padding: 25px 10px;
+            border-radius: 18px;
+            background: rgba(255,255,255,0.045);
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .stat strong {
+            display: block;
+            font-size: 28px;
+            margin-bottom: 7px;
+        }
+
+        .stat span {
+            color: #8f98b5;
+            font-size: 13px;
+        }
+
+        /* FEATURES */
+        .features {
+            padding: 45px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .card {
+            padding: 25px;
+            border-radius: 18px;
+            background: rgba(255,255,255,0.045);
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(41,169,234,0.4);
+        }
+
+        .card-icon {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #969fba;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        /* FINAL CTA */
+        .final {
+            text-align: center;
+            margin: 30px 0 50px;
+            padding: 45px 20px;
+            border-radius: 25px;
+            background: linear-gradient(
+                135deg,
+                rgba(41,169,234,0.14),
+                rgba(139,124,255,0.12)
+            );
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .final h2 {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .final p {
+            color: #aeb6d0;
+            margin-bottom: 15px;
+        }
+
+        /* DISCLAIMER */
+        .disclaimer {
+            text-align: center;
+            color: #707993;
+            font-size: 11px;
+            line-height: 1.6;
+            padding: 0 20px 25px;
+        }
+
+        /* MOBILE */
+        @media(max-width: 700px) {
+
+            nav {
+                padding: 18px 0;
+            }
+
+            .status {
+                font-size: 11px;
+            }
+
+            .hero {
+                padding-top: 40px;
+            }
+
+            .subtitle {
+                font-size: 15px;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .timer {
+                gap: 6px;
+            }
+
+            .time-box {
+                min-width: 62px;
+            }
+
+            .time-box strong {
+                font-size: 23px;
+            }
+
+            .join-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- NAVBAR -->
+        <nav>
+            <div class="logo">
+                TELE<span>GRAM</span>
+            </div>
+
+            <div class="status">
+                <div class="dot"></div>
+                Community Active
+            </div>
+        </nav>
+
+        <!-- HERO -->
+        <section class="hero">
+
+            <div class="telegram-icon">
+                ✈️
+            </div>
+
+            <div class="badge">
+                🔥 Exclusive Telegram Community
+            </div>
+
+            <h1>
+                Don't Miss Out.<br>
+                <span>Join The Community.</span>
+            </h1>
+
+            <p class="subtitle">
+                Get access to our latest updates, insights, announcements
+                and exclusive community content directly on Telegram.
+            </p>
+
+            <a
+                class="join-btn"
+                href="https://t.me/+RE5SaSA2tkwzYzZl"
+                target="_blank"
+                rel="noopener"
+            >
+                ✈️ JOIN TELEGRAM NOW
+            </a>
+
+        </section>
+
+        <!-- TIMER -->
+        <section class="timer-section">
+
+            <div class="timer-title">
+                ⏳ Special Access Window
+            </div>
+
+            <div class="timer">
+
+                <div class="time-box">
+                    <strong id="hours">00</strong>
+                    <small>HOURS</small>
+                </div>
+
+                <div class="time-box">
+                    <strong id="minutes">00</strong>
+                    <small>MINUTES</small>
+                </div>
+
+                <div class="time-box">
+                    <strong id="seconds">00</strong>
+                    <small>SECONDS</small>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- STATS -->
+        <section class="stats">
+
+            <div class="stat">
+                <strong>24/7</strong>
+                <span>Community Access</span>
+            </div>
+
+            <div class="stat">
+                <strong id="memberCount">1,247+</strong>
+                <span>Community Members</span>
+            </div>
+
+            <div class="stat">
+                <strong>FREE</strong>
+                <span>To Join</span>
+            </div>
+
+        </section>
+
+        <!-- FEATURES -->
+        <section class="features">
+
+            <h2 class="section-title">
+                What You'll Get
+            </h2>
+
+            <div class="cards">
+
+                <div class="card">
+                    <div class="card-icon">🚀</div>
+
+                    <h3>Latest Updates</h3>
+
+                    <p>
+                        Stay updated with important announcements,
+                        news and new opportunities shared inside the community.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">💡</div>
+
+                    <h3>Useful Insights</h3>
+
+                    <p>
+                        Discover useful information, ideas and community
+                        discussions that can help you make better decisions.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div class="card-icon">🔔</div>
+
+                    <h3>Instant Notifications</h3>
+
+                    <p>
+                        Get important updates directly on Telegram without
+                        constantly checking different platforms.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- FINAL CTA -->
+        <section class="final">
+
+            <h2>Ready To Join?</h2>
+
+            <p>
+                Tap the button below and join our Telegram community.
+            </p>
+
+            <a
+                class="join-btn"
+                href="https://t.me/+RE5SaSA2tkwzYzZl"
+                target="_blank"
+                rel="noopener"
+            >
+                ✈️ JOIN FREE TELEGRAM
+            </a>
+
+        </section>
+
+        <!-- DISCLAIMER -->
+        <div class="disclaimer">
+            This page is for informational and promotional purposes only.
+            Results and outcomes may vary. No earnings or financial results
+            are guaranteed. Always make your own informed decisions.
+        </div>
+
+    </div>
+
+
+    <script>
+
+        /* ==============================
+           COUNTDOWN TIMER
+        ============================== */
+
+        let endTime = Date.now() + (6 * 60 * 60 * 1000);
+
+        function updateTimer() {
+
+            let difference = endTime - Date.now();
+
+            if (difference <= 0) {
+                endTime = Date.now() + (6 * 60 * 60 * 1000);
+                difference = endTime - Date.now();
+            }
+
+            let hours = Math.floor(
+                difference / (1000 * 60 * 60)
+            );
+
+            let minutes = Math.floor(
+                (difference / (1000 * 60)) % 60
+            );
+
+            let seconds = Math.floor(
+                (difference / 1000) % 60
+            );
+
+            document.getElementById("hours").textContent =
+                String(hours).padStart(2, "0");
+
+            document.getElementById("minutes").textContent =
+                String(minutes).padStart(2, "0");
+
+            document.getElementById("seconds").textContent =
+                String(seconds).padStart(2, "0");
+        }
+
+        updateTimer();
+
+        setInterval(updateTimer, 1000);
+
+
+        /* ==============================
+           SUBTLE MEMBER COUNTER ANIMATION
+        ============================== */
+
+        let members = 1247;
+
+        setInterval(() => {
+
+            if (Math.random() > 0.55) {
+                members += Math.floor(Math.random() * 3);
+            }
+
+            document.getElementById("memberCount").textContent =
+                members.toLocaleString() + "+";
+
+        }, 7000);
+
+    </script>
+
+</body>
+</html>
+```

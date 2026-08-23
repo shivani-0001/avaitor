@@ -4,8 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#050505">
-<meta name="description" content="THEANCHORPOINT — digital marketing, performance advertising, social media, SEO, creative and conversion-focused digital experiences.">
-<title>THEANCHORPOINT — Digital Growth, Engineered.</title>
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="googlebot" content="index, follow">
+<meta name="author" content="THEANCHORPOINT">
+<meta name="keywords" content="THEANCHORPOINT, digital marketing agency, Meta Ads agency, performance marketing, SEO agency, social media marketing, lead generation, website design, branding agency, India">
+<link rel="canonical" href="https://theanchorpoint.in/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="THEANCHORPOINT — Digital Marketing & Growth Agency">
+<meta property="og:description" content="Performance marketing, Meta Ads, SEO, social media, creative, websites and lead generation.">
+<meta property="og:url" content="https://theanchorpoint.in/">
+<meta property="og:site_name" content="THEANCHORPOINT">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="THEANCHORPOINT — Digital Marketing & Growth Agency">
+<meta name="twitter:description" content="Digital growth systems built for attention, leads and conversions.">
+<meta name="description" content="THEANCHORPOINT is a digital marketing agency for performance marketing, Meta Ads, SEO, social media, branding, websites and lead generation.">
+<title>THEANCHORPOINT | Digital Marketing, Meta Ads & Growth Agency</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +26,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 
 <style>
 :root{
@@ -328,7 +340,173 @@ main{position:relative}
  .contact-dock{right:12px;bottom:12px;width:215px}.game-hud{display:none}
 }
 
+
+/* ===== ULTRA LUXURY / MOBILE-FIRST SYSTEM ===== */
+:root{
+  --gold:#d8c18a;
+  --soft:#cfcfc8;
+}
+body{font-size:15px;line-height:1.6}
+.section{scroll-margin-top:70px}
+.nav{padding:20px 4vw}
+.navlinks{gap:24px}
+.hero{min-height:92svh;padding:135px 5vw 80px}
+.hero h1{max-width:980px}
+.hero-orb{width:min(34vw,500px);opacity:.58}
+.hero-glow{opacity:.65}
+.section-head{margin-bottom:52px}
+.section-title{font-size:clamp(44px,6.2vw,92px)}
+.service{padding:29px 0}
+.service h3{font-size:clamp(26px,3.5vw,52px)}
+.work-card{min-height:480px;border-radius:22px}
+.blog-feature{min-height:500px}
+.contact{min-height:auto;padding-bottom:110px}
+.footer{padding:28px 5vw}
+.logo{font-size:20px}
+
+/* clean section separators */
+.section+.section{border-top:1px solid rgba(255,255,255,.035)}
+.kicker{font-weight:600}
+.section-desc,.hero-copy{color:#aaa}
+.contact-title{font-size:clamp(58px,10vw,145px)}
+.contact-panel{border-color:rgba(216,193,138,.22)}
+.contact-panel .kicker{color:var(--gold)}
+.contact-btn{background:var(--gold)}
+.dock-status span{background:var(--gold);box-shadow:0 0 12px var(--gold)}
+.blog-tag,.read-more{color:var(--gold)}
+.blog-feature:after{background:radial-gradient(circle at 72% 35%,rgba(216,193,138,.12),transparent 25%)}
+
+/* mobile */
+@media(max-width:760px){
+  body{cursor:auto}
+  .nav{padding:16px 18px}
+  .logo{font-size:18px}
+  .hero{min-height:88svh;padding:120px 20px 70px}
+  .hero-grid{background-size:48px 48px;opacity:.1}
+  .hero-orb{width:78vw;right:-25vw;top:26%;opacity:.28}
+  .hero-glow{width:100vw;height:100vw;right:-35vw;top:15%;opacity:.35}
+  .hero-content{max-width:100%}
+  .eyebrow{font-size:9px;letter-spacing:.16em;margin-bottom:22px}
+  .hero h1{font-size:clamp(56px,17vw,92px);line-height:.87;letter-spacing:-.085em}
+  .hero-bottom{display:block;margin-top:35px}
+  .hero-copy{font-size:15px;line-height:1.65;max-width:500px}
+  .hero-actions{margin-top:25px;display:grid;grid-template-columns:1fr}
+  .btn{justify-content:center;padding:14px 18px}
+  .scroll-mark{display:none}
+  .marquee span{font-size:25px;padding:18px 18px}
+  .section{padding:88px 20px}
+  .section-head{display:block;margin-bottom:42px}
+  .section-title{font-size:clamp(43px,13vw,68px);line-height:.92;margin-top:13px}
+  .section-desc{font-size:14px;margin-top:24px;line-height:1.7}
+  .service{grid-template-columns:34px 1fr 24px;gap:12px;padding:25px 0}
+  .service h3{font-size:25px;line-height:1.05}
+  .service-arrow{font-size:20px}
+  .work-grid{gap:12px}
+  .work-card{min-height:350px;padding:21px;border-radius:18px}
+  .work-card:nth-child(2),.work-card:nth-child(3){margin:0}
+  .work-title{font-size:27px}
+  .stats{grid-template-columns:1fr 1fr}
+  .stat{padding:30px 17px}
+  .stat-num{font-size:48px}
+  .stat-label{font-size:8px;line-height:1.4}
+  .process-intro{padding:0 0 35px}
+  .step{padding:38px 0}
+  .step h3{font-size:34px}
+  .step p{font-size:14px}
+  .testimonial{padding:42px 25px;border-radius:20px}
+  .quote{font-size:34px;line-height:1.06}
+  .blog-grid{grid-template-columns:1fr;gap:12px}
+  .blog-feature{min-height:410px;padding:25px;border-radius:19px}
+  .blog-feature:before{font-size:90px;right:-20px}
+  .blog-feature h3{font-size:42px}
+  .blog-card{min-height:260px;padding:24px;border-radius:19px}
+  .blog-card h3{font-size:30px}
+  .article-detail{padding:20px 14px}
+  .article-box{padding:30px 22px;border-radius:20px}
+  .article-box h2{font-size:48px}
+  .article-box p{font-size:15px;line-height:1.8}
+  .contact{padding-top:95px}
+  .contact-title{font-size:clamp(58px,17vw,90px)}
+  .contact-row{margin-top:40px}
+  .contact-details{display:grid;grid-template-columns:1fr;gap:20px}
+  .contact-btn{width:118px;height:118px}
+  .contact-panel{padding:23px;border-radius:20px}
+  .contact-panel h3{font-size:33px!important}
+  .contact-panel-grid{grid-template-columns:1fr;gap:9px}
+  .contact-tile{padding:18px}
+  .contact-tile a{font-size:18px}
+  .contact-form{grid-template-columns:1fr;gap:9px}
+  .contact-form textarea,.contact-form button{grid-column:auto}
+  .floating-tag{display:none}
+  .contact-dock{right:12px;bottom:12px;width:auto;min-width:200px;padding:11px}
+  .dock-label{font-size:11px}
+  .dock-main{font-size:19px}
+  .dock-actions a{width:32px;height:29px}
+  .footer{padding:24px 20px;gap:8px;font-size:8px}
+}
+
+/* accessibility */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.001ms!important}
+}
+
 </style>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@graph":[
+    {
+      "@type":"Organization",
+      "@id":"https://theanchorpoint.in/#organization",
+      "name":"THEANCHORPOINT",
+      "url":"https://theanchorpoint.in/",
+      "email":"mailto:anshtyagi746@gmail.com",
+      "telephone":"+91-93117-03705",
+      "description":"Digital marketing and growth agency offering performance marketing, Meta Ads, SEO, social media, creative, web experiences and lead generation."
+    },
+    {
+      "@type":"WebSite",
+      "@id":"https://theanchorpoint.in/#website",
+      "url":"https://theanchorpoint.in/",
+      "name":"THEANCHORPOINT",
+      "publisher":{"@id":"https://theanchorpoint.in/#organization"},
+      "inLanguage":"en-IN"
+    },
+    {
+      "@type":"ProfessionalService",
+      "name":"THEANCHORPOINT",
+      "url":"https://theanchorpoint.in/",
+      "telephone":"+91-93117-03705",
+      "email":"anshtyagi746@gmail.com",
+      "areaServed":"IN",
+      "serviceType":[
+        "Digital Marketing",
+        "Meta Ads",
+        "Performance Marketing",
+        "SEO",
+        "Social Media Marketing",
+        "Lead Generation",
+        "Website Design",
+        "Branding"
+      ]
+    }
+  ]
+}
+</script>
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"FAQPage",
+ "mainEntity":[
+  {"@type":"Question","name":"What does THEANCHORPOINT do?","acceptedAnswer":{"@type":"Answer","text":"THEANCHORPOINT provides digital marketing services including Meta Ads, performance marketing, SEO, social media, lead generation, branding and conversion-focused websites."}},
+  {"@type":"Question","name":"Can you manage Meta Ads?","acceptedAnswer":{"@type":"Answer","text":"Yes. THEANCHORPOINT can structure campaigns, creative testing, audiences, landing-page journeys, retargeting and performance reporting around business goals."}},
+  {"@type":"Question","name":"Do you work with businesses in India?","acceptedAnswer":{"@type":"Answer","text":"Yes. THEANCHORPOINT is positioned as an India-focused digital growth partner and can work with businesses across locations through remote collaboration."}},
+  {"@type":"Question","name":"How do I contact THEANCHORPOINT?","acceptedAnswer":{"@type":"Answer","text":"Call or WhatsApp +91 93117 03705, or email anshtyagi746@gmail.com."}}
+ ]
+}
+</script>
 </head>
 
 <body>
@@ -350,6 +528,7 @@ main{position:relative}
     <a href="#work">Work</a>
     <a href="#process">Process</a>
     <a href="#insights">Insights</a>
+    <a href="#faq">FAQ</a>
     <a href="#contact">Contact</a>
   </div>
   <a href="#contact" class="nav-cta">Start a project ↗</a>
@@ -395,7 +574,7 @@ main{position:relative}
 <section class="section" id="services">
   <div class="section-head">
     <div>
-      <div class="kicker reveal">01 / What we do</div>
+      <div class="kicker reveal">01 / SERVICES · GROWTH SYSTEMS</div>
       <h2 class="section-title reveal">Marketing that<br><span style="color:#c8ff35">moves the needle.</span></h2>
     </div>
     <p class="section-desc reveal">From the first impression to the final conversion, we connect every digital touchpoint into one focused growth engine.</p>
@@ -413,7 +592,7 @@ main{position:relative}
 <section class="section" id="work">
   <div class="section-head">
     <div>
-      <div class="kicker reveal">02 / Selected directions</div>
+      <div class="kicker reveal">02 / WORK · SELECTED DIRECTIONS</div>
       <h2 class="section-title reveal">Built to be<br><span class="outline" style="-webkit-text-stroke:1px #fff;color:transparent">remembered.</span></h2>
     </div>
     <p class="section-desc reveal">A visual showcase of the kind of campaign, brand and digital experiences THEANCHORPOINT can create.</p>
@@ -438,7 +617,7 @@ main{position:relative}
 <section class="section" id="process">
   <div class="process">
     <div class="process-intro">
-      <div class="kicker">03 / How we work</div>
+      <div class="kicker">03 / PROCESS · HOW WE WORK</div>
       <h2 class="section-title">No guesswork.<br><span style="color:#c8ff35">Just momentum.</span></h2>
       <p class="section-desc" style="margin-top:30px">A simple system. Clear priorities. Fast creative iteration. Every decision tied back to the business goal.</p>
     </div>
@@ -456,7 +635,7 @@ main{position:relative}
 <section class="section editorial" id="insights">
   <div class="section-head">
     <div>
-      <div class="kicker reveal">04 / Meta Ads intelligence</div>
+      <div class="kicker reveal">04 / INSIGHTS · META ADS INTELLIGENCE</div>
       <h2 class="section-title reveal">Play smarter.<br><span style="color:#c8ff35">Scale cleaner.</span></h2>
     </div>
     <p class="section-desc reveal">Practical Meta Ads thinking for businesses that want better creative, stronger funnels and decisions based on signals — not guesses.</p>
@@ -539,14 +718,43 @@ main{position:relative}
 
 <section class="section">
   <div class="testimonial reveal">
-    <div class="kicker">04 / The mindset</div>
+    <div class="kicker">05 / THE MINDSET</div>
     <div class="quote">“Your marketing should feel less like noise and more like a signal your ideal customer was waiting for.”</div>
     <div class="quote-note">THEANCHORPOINT / Digital Growth Studio</div>
   </div>
 </section>
 
+
+<section class="section" id="faq">
+  <div class="section-head">
+    <div>
+      <div class="kicker reveal">06 / FAQ</div>
+      <h2 class="section-title reveal">Questions.<br><span style="color:#d8c18a">Answered.</span></h2>
+    </div>
+    <p class="section-desc reveal">Quick answers about working with THEANCHORPOINT for digital marketing, Meta Ads, SEO and lead generation.</p>
+  </div>
+  <div class="services faq-list">
+    <details class="service">
+      <summary><span class="service-no">01</span><h3>What does THEANCHORPOINT do?</h3><span class="service-arrow">+</span></summary>
+      <p class="service-copy">THEANCHORPOINT provides digital marketing services including Meta Ads, performance marketing, SEO, social media, lead generation, branding and conversion-focused websites.</p>
+    </details>
+    <details class="service">
+      <summary><span class="service-no">02</span><h3>Can you manage Meta Ads?</h3><span class="service-arrow">+</span></summary>
+      <p class="service-copy">Yes. We can structure campaigns, creative testing, audiences, landing-page journeys, retargeting and performance reporting around the business goal.</p>
+    </details>
+    <details class="service">
+      <summary><span class="service-no">03</span><h3>Do you work with businesses in India?</h3><span class="service-arrow">+</span></summary>
+      <p class="service-copy">Yes. THEANCHORPOINT is positioned as an India-focused digital growth partner and can work with businesses across locations through remote collaboration.</p>
+    </details>
+    <details class="service">
+      <summary><span class="service-no">04</span><h3>How do I contact THEANCHORPOINT?</h3><span class="service-arrow">+</span></summary>
+      <p class="service-copy">Call or WhatsApp +91 93117 03705, or email anshtyagi746@gmail.com. The dedicated contact command center at the bottom of the website also keeps these options visible.</p>
+    </details>
+  </div>
+</section>
+
 <section class="section contact" id="contact">
-  <div class="kicker reveal">05 / Start a conversation</div>
+  <div class="kicker reveal">06 / CONTACT · START A CONVERSATION</div>
   <h2 class="contact-title reveal">LET'S MAKE<br>YOUR BRAND <span>MOVE.</span></h2>
   <div class="contact-row reveal">
     <div class="contact-details">
@@ -607,13 +815,7 @@ gsap.to(loaderLine,{width:"100%",duration:1.35,ease:"power3.inOut"});
 gsap.to(loaderBrand,{opacity:0.35,duration:.65,yoyo:true,repeat:1});
 gsap.to(loader,{yPercent:-100,duration:1.1,delay:1.5,ease:"power4.inOut",onComplete:()=>loader.remove()});
 
-let lenis;
-if(window.Lenis){
-  lenis = new Lenis({duration:1.15,smoothWheel:true,lerp:.085});
-  lenis.on('scroll',ScrollTrigger.update);
-  gsap.ticker.add((time)=>lenis.raf(time*1000));
-  gsap.ticker.lagSmoothing(0);
-}
+const lenis = null;
 
 const cursor = document.querySelector('.cursor');
 const ring = document.querySelector('.cursor-ring');
@@ -686,7 +888,7 @@ hero.addEventListener('mousemove',(e)=>{
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{
     const target=document.querySelector(a.getAttribute('href'));
-    if(target){e.preventDefault(); if(lenis) lenis.scrollTo(target,{offset:-40}); else target.scrollIntoView({behavior:"smooth"});}
+    if(target){e.preventDefault(); target.scrollIntoView({behavior:"smooth",block:"start"});}
   });
 });
 

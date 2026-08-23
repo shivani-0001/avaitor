@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050505">
+<meta name="description" content="THEANCHORPOINT — digital marketing, performance advertising, social media, SEO, creative and conversion-focused digital experiences.">
+<title>THEANCHORPOINT — Digital Growth, Engineered.</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+<style>
+:root{
+  --bg:#050505;
+  --bg2:#0a0a0a;
+  --text:#f5f5f2;
+  --muted:#9b9b98;
+  --line:rgba(255,255,255,.11);
+  --lime:#c8ff35;
+  --lime2:#8fff00;
+  --orange:#ff6a3d;
+  --card:#0e0e0e;
+  --max:1440px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:auto;background:var(--bg)}
+body{
+  background:var(--bg);color:var(--text);
+  font-family:"DM Sans",sans-serif;overflow-x:hidden;
+  cursor:none;font-size:16px;line-height:1.55;
+}
+p,.service-copy,.section-desc,.step p{font-size:15px;line-height:1.75}
+.hero-copy{font-size:18px;line-height:1.7}
+a{color:inherit;text-decoration:none}
+button,input,textarea{font:inherit}
+::selection{background:var(--lime);color:#050505}
+.noise{
+  position:fixed;inset:-50%;z-index:1000;pointer-events:none;opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
+  animation:noise .18s steps(2) infinite;
+}
+@keyframes noise{0%{transform:translate(0,0)}25%{transform:translate(2%,-1%)}50%{transform:translate(-1%,2%)}75%{transform:translate(1%,1%)}100%{transform:translate(-2%,-2%)}}
+.cursor,.cursor-ring{position:fixed;pointer-events:none;z-index:2000;border-radius:50%;transform:translate(-50%,-50%)}
+.cursor{width:7px;height:7px;background:var(--lime)}
+.cursor-ring{width:38px;height:38px;border:1px solid rgba(200,255,53,.65);transition:width .25s,height .25s,background .25s,border .25s}
+body.cursor-big .cursor-ring{width:74px;height:74px;background:rgba(200,255,53,.08);border-color:var(--lime)}
+@media(max-width:900px){body{cursor:auto}.cursor,.cursor-ring{display:none}}
+
+.loader{position:fixed;inset:0;z-index:3000;background:#050505;display:grid;place-items:center}
+.loader-inner{width:min(520px,80vw)}
+.loader-brand{font-family:"Space Grotesk";font-size:clamp(28px,6vw,72px);letter-spacing:-.06em}
+.loader-line{height:2px;background:#1c1c1c;margin-top:22px;overflow:hidden}
+.loader-line span{display:block;height:100%;width:0;background:var(--lime)}
+
+.progress{position:fixed;top:0;left:0;width:100%;height:3px;background:var(--lime);transform:scaleX(0);transform-origin:left;z-index:2500}
+.nav{
+  position:fixed;top:0;left:0;width:100%;z-index:1500;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:24px 4vw;mix-blend-mode:difference;color:white;
+}
+.logo{font-family:"Space Grotesk";font-weight:700;letter-spacing:-.06em;font-size:22px}
+.logo span{color:var(--lime)}
+.navlinks{display:flex;gap:30px;font-size:12px;text-transform:uppercase;letter-spacing:.12em}
+.navlinks a{opacity:.8;transition:.25s}.navlinks a:hover{opacity:1;color:var(--lime)}
+.nav-cta{border:1px solid rgba(255,255,255,.35);padding:11px 17px;border-radius:100px;font-size:11px;text-transform:uppercase;letter-spacing:.12em}
+.menu{display:none}
+@media(max-width:760px){.navlinks,.nav-cta{display:none}.menu{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.15em}}
+
+main{position:relative}
+.hero{
+  min-height:100svh;display:flex;align-items:center;position:relative;
+  overflow:hidden;padding:150px 5vw 90px;
+}
+.hero-grid{
+  position:absolute;inset:0;opacity:.18;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:80px 80px;
+  mask-image:linear-gradient(to bottom,black,transparent 85%);
+}
+.hero-glow{
+  position:absolute;width:55vw;height:55vw;right:-10vw;top:10vh;
+  background:radial-gradient(circle,rgba(200,255,53,.17),rgba(200,255,53,0) 65%);
+  filter:blur(10px);pointer-events:none;
+}
+.hero-orb{
+  position:absolute;right:7vw;top:20%;width:min(40vw,560px);aspect-ratio:1;
+  border-radius:50%;
+  background:
+    radial-gradient(circle at 35% 28%,#f4ffcc 0 2%,#c8ff35 4%,transparent 22%),
+    radial-gradient(circle at 50% 50%,rgba(200,255,53,.7),rgba(0,0,0,.95) 67%);
+  box-shadow:0 0 100px rgba(200,255,53,.18), inset -35px -35px 80px #000;
+  opacity:.75;filter:saturate(1.15);
+  animation:orbFloat 8s ease-in-out infinite;
+}
+.hero-orb:after{
+  content:"";position:absolute;inset:-7%;border:1px solid rgba(200,255,53,.18);
+  border-radius:50%;box-shadow:0 0 0 22px rgba(200,255,53,.025),0 0 0 45px rgba(200,255,53,.02);
+}
+@keyframes orbFloat{50%{transform:translateY(-22px) rotate(5deg) scale(1.03)}}
+.hero-content{position:relative;z-index:2;max-width:980px}
+.eyebrow{display:flex;align-items:center;gap:10px;color:var(--lime);font-size:11px;text-transform:uppercase;letter-spacing:.2em;margin-bottom:30px}
+.dot{width:7px;height:7px;background:var(--lime);border-radius:50%;box-shadow:0 0 20px var(--lime)}
+.hero h1{
+  font-family:"Space Grotesk";font-size:clamp(62px,10vw,166px);line-height:.83;
+  letter-spacing:-.085em;font-weight:600;max-width:1200px;
+}
+.hero h1 .outline{color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.7)}
+.hero h1 .lime{color:var(--lime)}
+.hero-bottom{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-top:60px;max-width:1080px}
+.hero-copy{font-size:17px;line-height:1.55;color:#b7b7b3;max-width:490px}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:12px;padding:15px 21px;border-radius:100px;
+  border:1px solid var(--line);font-size:12px;text-transform:uppercase;letter-spacing:.12em;
+  transition:transform .3s,background .3s,color .3s;
+}
+.btn:hover{transform:translateY(-4px)}
+.btn.primary{background:var(--lime);color:#050505;border-color:var(--lime)}
+.btn.dark{background:#0d0d0d}
+.scroll-mark{position:absolute;bottom:28px;left:5vw;font-size:10px;text-transform:uppercase;letter-spacing:.18em;color:#777}
+.scroll-mark:after{content:"";display:inline-block;width:50px;height:1px;background:#555;margin:0 0 3px 10px}
+
+.marquee{border-block:1px solid var(--line);overflow:hidden;background:#080808}
+.marquee-track{display:flex;width:max-content;animation:marquee 22s linear infinite}
+.marquee span{font-family:"Space Grotesk";font-size:clamp(26px,4vw,56px);letter-spacing:-.04em;padding:23px 25px;white-space:nowrap}
+.marquee .star{color:var(--lime)}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+.section{padding:150px 5vw;max-width:var(--max);margin:auto}
+.section-head{display:flex;justify-content:space-between;gap:40px;align-items:end;margin-bottom:70px}
+.kicker{font-size:11px;color:var(--lime);text-transform:uppercase;letter-spacing:.2em}
+.section-title{font-family:"Space Grotesk";font-size:clamp(48px,7vw,104px);line-height:.88;letter-spacing:-.075em;max-width:850px;margin-top:20px}
+.section-desc{max-width:360px;color:#888;line-height:1.6;font-size:14px}
+
+.services{border-top:1px solid var(--line)}
+.service{
+  display:grid;grid-template-columns:90px 1fr 320px 40px;gap:25px;align-items:center;
+  padding:34px 0;border-bottom:1px solid var(--line);position:relative;overflow:hidden;
+}
+.service:before{content:"";position:absolute;inset:0;background:var(--lime);transform:translateY(101%);transition:transform .5s cubic-bezier(.7,0,.2,1);z-index:-1}
+.service:hover:before{transform:translateY(0)}
+.service:hover{color:#050505}
+.service:hover .service-no,.service:hover .service-copy{color:#333}
+.service-no{font-size:12px;color:#777}
+.service h3{font-family:"Space Grotesk";font-size:clamp(28px,4vw,60px);letter-spacing:-.05em;font-weight:500}
+.service-copy{font-size:13px;color:#888;line-height:1.5}
+.service-arrow{font-size:28px}
+@media(max-width:850px){.service{grid-template-columns:45px 1fr 35px}.service-copy{display:none}}
+
+.work-wrap{position:relative}
+.work-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.work-card{
+  min-height:540px;border:1px solid var(--line);border-radius:28px;position:relative;overflow:hidden;
+  background:#0b0b0b;display:flex;align-items:end;padding:28px;transition:transform .5s;
+}
+.work-card:nth-child(2){margin-top:120px}
+.work-card:nth-child(3){margin-top:-40px}
+.work-art{position:absolute;inset:0;overflow:hidden}
+.art1{background:radial-gradient(circle at 70% 25%,#c8ff35 0 2%,transparent 3%),linear-gradient(135deg,#111,#242a12 45%,#050505)}
+.art1:before{content:"";position:absolute;width:500px;height:500px;border-radius:50%;border:1px solid #c8ff35;left:45%;top:15%;box-shadow:0 0 0 40px rgba(200,255,53,.03),0 0 0 100px rgba(200,255,53,.025)}
+.art2{background:linear-gradient(140deg,#111,#1d1110)}
+.art2:before{content:"";position:absolute;width:120%;height:160%;left:-10%;top:-25%;background:repeating-linear-gradient(115deg,transparent 0 40px,rgba(255,106,61,.35) 41px 43px);transform:rotate(-5deg)}
+.art3{background:radial-gradient(circle at 50% 50%,rgba(200,255,53,.3),transparent 20%),#070707}
+.art3:before{content:"TAP";position:absolute;font-family:"Space Grotesk";font-weight:700;font-size:28vw;letter-spacing:-.1em;color:transparent;-webkit-text-stroke:1px rgba(200,255,53,.25);top:5%;left:0}
+.art4{background:linear-gradient(135deg,#151515,#07100a)}
+.art4:before{content:"";position:absolute;inset:15%;border:1px solid rgba(255,255,255,.2);transform:rotate(8deg);box-shadow:25px 25px 0 rgba(200,255,53,.12),-25px -25px 0 rgba(255,106,61,.1)}
+.work-info{position:relative;z-index:2;width:100%;display:flex;justify-content:space-between;align-items:end;gap:20px}
+.work-label{font-size:11px;text-transform:uppercase;letter-spacing:.16em;color:#aaa}
+.work-title{font-family:"Space Grotesk";font-size:34px;letter-spacing:-.05em;margin-top:7px}
+.work-pill{border:1px solid rgba(255,255,255,.25);padding:9px 13px;border-radius:100px;font-size:10px;text-transform:uppercase}
+@media(max-width:800px){.work-grid{grid-template-columns:1fr}.work-card,.work-card:nth-child(2),.work-card:nth-child(3){margin:0;min-height:420px}}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border-block:1px solid var(--line)}
+.stat{padding:50px 25px;border-right:1px solid var(--line)}
+.stat:last-child{border:0}
+.stat-num{font-family:"Space Grotesk";font-size:clamp(48px,6vw,90px);letter-spacing:-.08em;color:var(--lime)}
+.stat-label{font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:#777;margin-top:10px}
+@media(max-width:700px){.stats{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+
+.process{display:grid;grid-template-columns:1fr 1.4fr;border-top:1px solid var(--line)}
+.process-intro{padding:55px 0;position:sticky;top:100px;height:max-content}
+.process-list{border-left:1px solid var(--line)}
+.step{padding:55px 35px;border-bottom:1px solid var(--line);position:relative}
+.step-num{color:var(--lime);font-size:11px;letter-spacing:.18em}
+.step h3{font-family:"Space Grotesk";font-size:clamp(34px,5vw,68px);letter-spacing:-.06em;margin:18px 0}
+.step p{color:#888;line-height:1.7;max-width:540px;font-size:14px}
+@media(max-width:800px){.process{grid-template-columns:1fr}.process-intro{position:relative;top:auto}.process-list{border-left:0}.step{padding:45px 0}}
+
+.testimonial{position:relative;border:1px solid var(--line);border-radius:30px;padding:70px 7vw;overflow:hidden;background:linear-gradient(135deg,#0c0c0c,#090909)}
+.testimonial:after{content:"“";position:absolute;right:5%;top:-50px;font-family:Georgia;font-size:280px;color:rgba(200,255,53,.08)}
+.quote{font-family:"Space Grotesk";font-size:clamp(34px,5vw,72px);line-height:1.02;letter-spacing:-.06em;max-width:1000px;position:relative;z-index:2}
+.quote-note{margin-top:35px;color:#777;font-size:12px;text-transform:uppercase;letter-spacing:.15em}
+
+.contact{
+  min-height:90vh;display:flex;flex-direction:column;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.contact:before{
+  content:"";position:absolute;width:70vw;height:70vw;right:-20vw;top:5%;border-radius:50%;
+  background:radial-gradient(circle,rgba(200,255,53,.14),transparent 65%);
+}
+.contact-title{font-family:"Space Grotesk";font-size:clamp(65px,12vw,180px);line-height:.78;letter-spacing:-.09em;max-width:1100px;position:relative}
+.contact-title span{color:var(--lime)}
+.contact-row{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-top:70px;position:relative}
+.contact-details{display:flex;gap:40px;flex-wrap:wrap}
+.detail small{display:block;color:#666;text-transform:uppercase;letter-spacing:.15em;font-size:9px;margin-bottom:8px}
+.detail a{font-size:15px}
+.contact-btn{width:160px;height:160px;border-radius:50%;background:var(--lime);color:#050505;display:grid;place-items:center;text-align:center;font-family:"Space Grotesk";font-size:13px;text-transform:uppercase;letter-spacing:.08em;transition:transform .4s}
+.contact-btn:hover{transform:rotate(12deg) scale(1.08)}
+@media(max-width:650px){.contact-row{align-items:start;flex-direction:column}.contact-btn{width:130px;height:130px}}
+
+.footer{padding:35px 5vw;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;color:#666;font-size:10px;text-transform:uppercase;letter-spacing:.12em}
+.footer strong{color:#ddd}
+@media(max-width:600px){.footer{flex-direction:column}}
+
+.reveal{opacity:0;transform:translateY(50px)}
+.word{display:inline-block;overflow:hidden}.word span{display:inline-block}
+.floating-tag{
+  position:fixed;right:24px;bottom:24px;z-index:1200;background:#111;border:1px solid var(--line);
+  padding:11px 15px;border-radius:100px;font-size:10px;text-transform:uppercase;letter-spacing:.13em;
+  box-shadow:0 10px 40px rgba(0,0,0,.4)
+}
+.floating-tag i{display:inline-block;width:6px;height:6px;background:var(--lime);border-radius:50%;margin-right:7px;box-shadow:0 0 10px var(--lime)}
+@media(max-width:650px){.floating-tag{right:12px;bottom:12px}}
+
+/* ===== CLASSY / GAME-LIKE UI UPGRADE ===== */
+.contact-dock{
+  position:fixed;right:24px;bottom:24px;z-index:1400;
+  width:245px;padding:14px;border:1px solid rgba(200,255,53,.25);
+  background:rgba(8,8,8,.82);backdrop-filter:blur(18px);
+  border-radius:18px;box-shadow:0 20px 70px rgba(0,0,0,.45),0 0 45px rgba(200,255,53,.06);
+}
+.dock-status{font-size:9px;text-transform:uppercase;letter-spacing:.16em;color:#8f8f8b;margin-bottom:12px}
+.dock-status span{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--lime);margin-right:6px;box-shadow:0 0 12px var(--lime)}
+.dock-label{font-size:12px;color:#777;margin-bottom:2px}
+.dock-main{display:flex;align-items:center;justify-content:space-between;font-family:"Space Grotesk";font-size:22px;letter-spacing:-.04em}
+.dock-main b{color:var(--lime);font-size:18px}
+.dock-actions{display:flex;gap:7px;margin-top:12px}
+.dock-actions a{width:35px;height:31px;border:1px solid var(--line);border-radius:9px;display:grid;place-items:center;font-size:9px;color:#aaa;transition:.25s}
+.dock-actions a:hover{background:var(--lime);color:#050505;border-color:var(--lime);transform:translateY(-2px)}
+.editorial{padding-top:80px}
+.blog-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:18px}
+.blog-feature,.blog-card{
+  border:1px solid var(--line);background:#0b0b0b;border-radius:24px;
+  overflow:hidden;position:relative;transition:.45s;
+}
+.blog-feature:hover,.blog-card:hover{border-color:rgba(200,255,53,.45);transform:translateY(-6px)}
+.blog-feature{min-height:590px;padding:38px;display:flex;flex-direction:column;justify-content:end}
+.blog-feature:before{
+  content:"META ADS";position:absolute;right:-30px;top:35px;font-family:"Space Grotesk";
+  font-weight:700;font-size:150px;line-height:.7;color:transparent;
+  -webkit-text-stroke:1px rgba(200,255,53,.12);transform:rotate(90deg);
+}
+.blog-feature:after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 72% 35%,rgba(200,255,53,.18),transparent 25%),
+             linear-gradient(135deg,transparent 45%,rgba(200,255,53,.05));
+  pointer-events:none;
+}
+.blog-content{position:relative;z-index:2;max-width:780px}
+.blog-tag{font-size:10px;color:var(--lime);text-transform:uppercase;letter-spacing:.18em}
+.blog-feature h3,.blog-card h3{
+  font-family:"Space Grotesk";letter-spacing:-.055em;line-height:.98;
+}
+.blog-feature h3{font-size:clamp(38px,5vw,76px);margin:18px 0}
+.blog-feature p,.blog-card p{color:#8e8e89;font-size:14px;line-height:1.75}
+.blog-meta{display:flex;gap:20px;color:#666;font-size:10px;text-transform:uppercase;letter-spacing:.12em;margin-top:25px}
+.blog-side{display:grid;gap:18px}
+.blog-card{padding:30px;min-height:286px;display:flex;flex-direction:column;justify-content:end}
+.blog-card h3{font-size:34px;margin:14px 0}
+.blog-number{
+  position:absolute;right:25px;top:22px;font-family:"Space Grotesk";
+  color:#2b2b2b;font-size:50px;letter-spacing:-.08em;
+}
+.read-more{margin-top:20px;color:var(--lime);font-size:10px;text-transform:uppercase;letter-spacing:.15em}
+.article-detail{
+  display:none;position:fixed;inset:0;z-index:2200;background:rgba(3,3,3,.94);
+  backdrop-filter:blur(20px);overflow:auto;padding:8vh 5vw;
+}
+.article-detail.open{display:block}
+.article-box{max-width:920px;margin:auto;border:1px solid var(--line);background:#0a0a0a;border-radius:28px;padding:55px}
+.article-close{float:right;border:1px solid var(--line);border-radius:50%;width:42px;height:42px;background:none;color:#fff;cursor:pointer}
+.article-box .blog-tag{margin-top:30px;display:block}
+.article-box h2{font-family:"Space Grotesk";font-size:clamp(44px,7vw,90px);line-height:.9;letter-spacing:-.07em;margin:18px 0 35px}
+.article-box h4{font-family:"Space Grotesk";font-size:26px;margin:34px 0 10px;color:var(--lime)}
+.article-box p{color:#b0b0aa;font-size:16px;line-height:1.9}
+.article-box ul{margin:12px 0 0 20px;color:#b0b0aa;line-height:1.9}
+.contact-panel{
+  margin-top:65px;border:1px solid rgba(200,255,53,.22);border-radius:30px;
+  background:linear-gradient(135deg,#0c0d09,#090909);padding:38px;
+}
+.contact-panel-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:25px}
+.contact-tile{border:1px solid var(--line);border-radius:17px;padding:23px;transition:.3s}
+.contact-tile:hover{border-color:var(--lime);background:rgba(200,255,53,.04);transform:translateY(-3px)}
+.contact-tile small{display:block;color:#666;text-transform:uppercase;letter-spacing:.14em;font-size:9px;margin-bottom:8px}
+.contact-tile a{font-family:"Space Grotesk";font-size:20px;letter-spacing:-.03em}
+.contact-form{
+  margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:12px
+}
+.contact-form input,.contact-form textarea{
+  width:100%;background:#070707;border:1px solid var(--line);border-radius:12px;
+  color:#fff;padding:15px;outline:none;transition:.25s
+}
+.contact-form input:focus,.contact-form textarea:focus{border-color:var(--lime);box-shadow:0 0 0 3px rgba(200,255,53,.06)}
+.contact-form textarea{grid-column:1/-1;min-height:120px;resize:vertical}
+.contact-form button{
+  grid-column:1/-1;border:0;background:var(--lime);color:#050505;padding:16px;
+  border-radius:12px;font-family:"Space Grotesk";font-weight:700;text-transform:uppercase;letter-spacing:.12em;cursor:pointer
+}
+.game-hud{
+  position:absolute;right:5vw;bottom:55px;z-index:3;
+  border:1px solid rgba(255,255,255,.12);background:rgba(5,5,5,.55);
+  backdrop-filter:blur(12px);border-radius:14px;padding:12px 14px;min-width:180px;
+  font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:#777;
+}
+.hud-line{height:3px;background:#1b1b1b;margin-top:8px;overflow:hidden;border-radius:10px}
+.hud-line span{display:block;height:100%;width:72%;background:var(--lime);animation:hudPulse 2s ease-in-out infinite}
+@keyframes hudPulse{50%{width:92%}}
+@media(max-width:800px){
+ .blog-grid{grid-template-columns:1fr}.blog-feature{min-height:500px}.contact-panel-grid,.contact-form{grid-template-columns:1fr}
+ .contact-form textarea,.contact-form button{grid-column:auto}
+ .contact-dock{right:12px;bottom:12px;width:215px}.game-hud{display:none}
+}
+
+</style>
+</head>
+
+<body>
+<div class="loader">
+  <div class="loader-inner">
+    <div class="loader-brand">THEANCHOR<span style="color:#c8ff35">POINT</span></div>
+    <div class="loader-line"><span></span></div>
+  </div>
+</div>
+
+<div class="noise"></div>
+<div class="progress"></div>
+<div class="cursor"></div><div class="cursor-ring"></div>
+
+<nav class="nav">
+  <a href="#top" class="logo">THEANCHOR<span>POINT</span></a>
+  <div class="navlinks">
+    <a href="#services">Services</a>
+    <a href="#work">Work</a>
+    <a href="#process">Process</a>
+    <a href="#insights">Insights</a>
+    <a href="#contact">Contact</a>
+  </div>
+  <a href="#contact" class="nav-cta">Start a project ↗</a>
+  <a href="#contact" class="menu">Menu ↗</a>
+</nav>
+
+<main id="top">
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-orb"></div>
+  <div class="hero-content">
+    <div class="eyebrow reveal"><span class="dot"></span> Digital Growth Studio · India</div>
+    <h1>
+      <span class="word"><span>WE</span></span>
+      <span class="word"><span>MAKE</span></span><br>
+      <span class="word"><span class="outline">BRANDS</span></span>
+      <span class="word"><span>MOVE.</span></span>
+    </h1>
+    <div class="hero-bottom">
+      <p class="hero-copy reveal">THEANCHORPOINT builds digital growth systems where strategy, creative, media and technology work together — turning attention into action.</p>
+      <div class="hero-actions reveal">
+        <a class="btn primary magnetic" href="#contact">Build something big ↗</a>
+        <a class="btn dark magnetic" href="#work">Explore our work ↓</a>
+      </div>
+    </div>
+  </div>
+  <div class="game-hud">
+    <div>Growth system status</div>
+    <div class="hud-line"><span></span></div>
+    <div style="margin-top:7px;color:#aaa">Signal detected · 360° mode</div>
+  </div>
+  <div class="scroll-mark">Scroll to explore</div>
+</section>
+
+<div class="marquee">
+  <div class="marquee-track">
+    <span>STRATEGY <b class="star">✳</b></span><span>CREATIVE <b class="star">✳</b></span><span>PERFORMANCE <b class="star">✳</b></span><span>GROWTH <b class="star">✳</b></span>
+    <span>STRATEGY <b class="star">✳</b></span><span>CREATIVE <b class="star">✳</b></span><span>PERFORMANCE <b class="star">✳</b></span><span>GROWTH <b class="star">✳</b></span>
+  </div>
+</div>
+
+<section class="section" id="services">
+  <div class="section-head">
+    <div>
+      <div class="kicker reveal">01 / What we do</div>
+      <h2 class="section-title reveal">Marketing that<br><span style="color:#c8ff35">moves the needle.</span></h2>
+    </div>
+    <p class="section-desc reveal">From the first impression to the final conversion, we connect every digital touchpoint into one focused growth engine.</p>
+  </div>
+  <div class="services">
+    <a class="service reveal" href="#contact"><span class="service-no">01</span><h3>Performance Marketing</h3><p class="service-copy">Meta Ads, Google Ads, funnels, creative testing, retargeting and conversion optimisation.</p><span class="service-arrow">↗</span></a>
+    <a class="service reveal" href="#contact"><span class="service-no">02</span><h3>Social Media</h3><p class="service-copy">Strategy, content systems, reels, community and campaigns designed around your brand.</p><span class="service-arrow">↗</span></a>
+    <a class="service reveal" href="#contact"><span class="service-no">03</span><h3>SEO & Content</h3><p class="service-copy">Technical SEO, content strategy, search visibility and pages built to attract intent.</p><span class="service-arrow">↗</span></a>
+    <a class="service reveal" href="#contact"><span class="service-no">04</span><h3>Web Experiences</h3><p class="service-copy">Fast, responsive websites and landing pages built for attention, trust and conversion.</p><span class="service-arrow">↗</span></a>
+    <a class="service reveal" href="#contact"><span class="service-no">05</span><h3>Brand & Creative</h3><p class="service-copy">Positioning, visual direction, campaign concepts and creative that earns attention.</p><span class="service-arrow">↗</span></a>
+    <a class="service reveal" href="#contact"><span class="service-no">06</span><h3>Lead Generation</h3><p class="service-copy">Acquisition systems that connect ads, landing pages, qualification and follow-up.</p><span class="service-arrow">↗</span></a>
+  </div>
+</section>
+
+<section class="section" id="work">
+  <div class="section-head">
+    <div>
+      <div class="kicker reveal">02 / Selected directions</div>
+      <h2 class="section-title reveal">Built to be<br><span class="outline" style="-webkit-text-stroke:1px #fff;color:transparent">remembered.</span></h2>
+    </div>
+    <p class="section-desc reveal">A visual showcase of the kind of campaign, brand and digital experiences THEANCHORPOINT can create.</p>
+  </div>
+  <div class="work-grid">
+    <article class="work-card reveal"><div class="work-art art1"></div><div class="work-info"><div><div class="work-label">Performance / Growth</div><div class="work-title">Attention → Action</div></div><span class="work-pill">Campaign system</span></div></article>
+    <article class="work-card reveal"><div class="work-art art2"></div><div class="work-info"><div><div class="work-label">Creative / Social</div><div class="work-title">Scroll Stopping</div></div><span class="work-pill">Content engine</span></div></article>
+    <article class="work-card reveal"><div class="work-art art3"></div><div class="work-info"><div><div class="work-label">Brand / Digital</div><div class="work-title">Make It Ownable</div></div><span class="work-pill">Identity</span></div></article>
+    <article class="work-card reveal"><div class="work-art art4"></div><div class="work-info"><div><div class="work-label">Web / Conversion</div><div class="work-title">Clicks That Convert</div></div><span class="work-pill">Experience</span></div></article>
+  </div>
+</section>
+
+<section class="section" style="padding-top:40px">
+  <div class="stats">
+    <div class="stat"><div class="stat-num" data-count="360">0°</div><div class="stat-label">Growth perspective</div></div>
+    <div class="stat"><div class="stat-num" data-count="24">0/7</div><div class="stat-label">Always-on thinking</div></div>
+    <div class="stat"><div class="stat-num">∞</div><div class="stat-label">Creative possibilities</div></div>
+    <div class="stat"><div class="stat-num">1</div><div class="stat-label">Focused growth partner</div></div>
+  </div>
+</section>
+
+<section class="section" id="process">
+  <div class="process">
+    <div class="process-intro">
+      <div class="kicker">03 / How we work</div>
+      <h2 class="section-title">No guesswork.<br><span style="color:#c8ff35">Just momentum.</span></h2>
+      <p class="section-desc" style="margin-top:30px">A simple system. Clear priorities. Fast creative iteration. Every decision tied back to the business goal.</p>
+    </div>
+    <div class="process-list">
+      <div class="step reveal"><div class="step-num">01 — DISCOVER</div><h3>Find the real opportunity.</h3><p>We study your offer, audience, competitors, existing data and customer journey to identify where growth is being lost — and where it can be unlocked.</p></div>
+      <div class="step reveal"><div class="step-num">02 — STRATEGISE</div><h3>Build the growth map.</h3><p>We define positioning, channels, creative angles, campaign structure, landing experience and measurement so everyone knows what we are trying to achieve.</p></div>
+      <div class="step reveal"><div class="step-num">03 — CREATE</div><h3>Make people stop.</h3><p>Hooks, visuals, copy, landing pages and campaign assets are built as one connected creative system instead of isolated pieces.</p></div>
+      <div class="step reveal"><div class="step-num">04 — LAUNCH</div><h3>Put it in motion.</h3><p>Campaigns go live with structured testing, clean tracking and a feedback loop designed to reveal what deserves more attention.</p></div>
+      <div class="step reveal"><div class="step-num">05 — OPTIMISE</div><h3>Double down on what works.</h3><p>We analyse the signals, improve the weakest link and continuously sharpen the system around business outcomes.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section editorial" id="insights">
+  <div class="section-head">
+    <div>
+      <div class="kicker reveal">04 / Meta Ads intelligence</div>
+      <h2 class="section-title reveal">Play smarter.<br><span style="color:#c8ff35">Scale cleaner.</span></h2>
+    </div>
+    <p class="section-desc reveal">Practical Meta Ads thinking for businesses that want better creative, stronger funnels and decisions based on signals — not guesses.</p>
+  </div>
+
+  <div class="blog-grid">
+    <article class="blog-feature reveal">
+      <div class="blog-content">
+        <div class="blog-tag">Meta Ads / Playbook 01</div>
+        <h3>Why your Meta Ads aren't converting — even when the CTR looks good.</h3>
+        <p>A click is only the beginning. Learn how offer clarity, creative-message match, landing-page friction and lead quality work together to determine whether an ad actually creates business.</p>
+        <div class="blog-meta"><span>8 min read</span><span>Performance</span><span>2026</span></div>
+        <a href="#" class="read-more article-open" data-article="article1">Read the playbook ↗</a>
+      </div>
+    </article>
+
+    <div class="blog-side">
+      <article class="blog-card reveal">
+        <span class="blog-number">02</span>
+        <div class="blog-tag">Meta Ads / Creative</div>
+        <h3>Creative fatigue: the silent killer of ad performance.</h3>
+        <p>When audiences stop responding, changing the budget isn't always the answer. Learn a cleaner creative testing loop.</p>
+        <a href="#" class="read-more article-open" data-article="article2">Read article ↗</a>
+      </article>
+      <article class="blog-card reveal">
+        <span class="blog-number">03</span>
+        <div class="blog-tag">Meta Ads / Funnel</div>
+        <h3>The 3-layer funnel behind a better lead campaign.</h3>
+        <p>Cold attention, qualified intent and follow-up should behave like one system — not three disconnected campaigns.</p>
+        <a href="#" class="read-more article-open" data-article="article3">Read article ↗</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="article-detail" id="article1">
+  <div class="article-box">
+    <button class="article-close">×</button>
+    <span class="blog-tag">Meta Ads / Playbook 01</span>
+    <h2>Good CTR. Bad business. Here's why.</h2>
+    <p>CTR tells you whether people are interested enough to click. It does not tell you whether they trust the offer, understand the value, complete the form, answer the phone or become customers.</p>
+    <h4>01 — Start with the offer</h4>
+    <p>A strong campaign cannot rescue an unclear offer. Make the outcome, audience, proof, price logic and next step easy to understand. The creative should communicate one main idea instead of trying to sell everything at once.</p>
+    <h4>02 — Match the message to the landing page</h4>
+    <p>If the ad promises one thing and the landing page opens with something completely different, the user has to rebuild context. Keep the headline, visual language and promise connected from ad to page.</p>
+    <h4>03 — Measure lead quality</h4>
+    <p>For lead generation, cheap leads can be expensive. Track qualified leads and downstream sales alongside CPL. A slightly higher CPL can be healthier if the leads are genuinely useful.</p>
+    <h4>04 — Test one meaningful variable</h4>
+    <p>Change the hook, angle, visual or offer structure deliberately. When everything changes at once, you learn less from the result. Build a testing library and let winners earn more spend.</p>
+  </div>
+</div>
+
+<div class="article-detail" id="article2">
+  <div class="article-box">
+    <button class="article-close">×</button>
+    <span class="blog-tag">Meta Ads / Creative</span>
+    <h2>Creative fatigue is a signal, not a disaster.</h2>
+    <p>When frequency rises and engagement or conversion quality falls, the audience may simply be seeing the same story too many times. The answer is usually a better creative system, not random budget changes.</p>
+    <h4>Build creative families</h4>
+    <p>Keep the same strategic promise while rotating hooks, openings, proof, formats, creators, visuals and objections. This gives the algorithm fresh material without losing the core positioning.</p>
+    <h4>Watch the pattern</h4>
+    <p>Look at frequency, thumb-stop behavior, CTR, CPM and conversion rate together. One metric rarely tells the complete story.</p>
+  </div>
+</div>
+
+<div class="article-detail" id="article3">
+  <div class="article-box">
+    <button class="article-close">×</button>
+    <span class="blog-tag">Meta Ads / Funnel</span>
+    <h2>A lead campaign is a system, not a button.</h2>
+    <p>The strongest acquisition setups connect three layers: attention, intent and follow-up.</p>
+    <h4>Layer 01 — Attention</h4>
+    <p>Use creative that earns the first few seconds. Lead with the problem, desired outcome, surprising insight or a highly specific audience cue.</p>
+    <h4>Layer 02 — Intent</h4>
+    <p>Give interested people enough context to self-qualify. A focused landing page or well-designed instant form can improve both clarity and lead quality.</p>
+    <h4>Layer 03 — Follow-up</h4>
+    <p>Speed and consistency matter. Route new leads to the right person, define qualification questions and create a clear follow-up process.</p>
+  </div>
+</div>
+
+<section class="section">
+  <div class="testimonial reveal">
+    <div class="kicker">04 / The mindset</div>
+    <div class="quote">“Your marketing should feel less like noise and more like a signal your ideal customer was waiting for.”</div>
+    <div class="quote-note">THEANCHORPOINT / Digital Growth Studio</div>
+  </div>
+</section>
+
+<section class="section contact" id="contact">
+  <div class="kicker reveal">05 / Start a conversation</div>
+  <h2 class="contact-title reveal">LET'S MAKE<br>YOUR BRAND <span>MOVE.</span></h2>
+  <div class="contact-row reveal">
+    <div class="contact-details">
+      <div class="detail"><small>Call / WhatsApp</small><a href="tel:+919311703705">+91 93117 03705</a></div>
+      <div class="detail"><small>Email</small><a href="mailto:anshtyagi746@gmail.com">anshtyagi746@gmail.com</a></div>
+    </div>
+    <a class="contact-btn magnetic" href="https://wa.me/919311703705?text=Hi%20THEANCHORPOINT%2C%20I%27d%20like%20to%20discuss%20a%20digital%20marketing%20project." target="_blank" rel="noopener">Start<br>Project ↗</a>
+  </div>
+
+  <div class="contact-panel reveal">
+    <div class="kicker">Direct contact</div>
+    <h3 style="font-family:'Space Grotesk';font-size:clamp(32px,5vw,62px);letter-spacing:-.06em;margin-top:12px">Tell us what you want to build.</h3>
+    <div class="contact-panel-grid">
+      <div class="contact-tile"><small>Call</small><a href="tel:+919311703705">+91 93117 03705</a></div>
+      <div class="contact-tile"><small>WhatsApp</small><a href="https://wa.me/919311703705" target="_blank" rel="noopener">Open WhatsApp ↗</a></div>
+      <div class="contact-tile"><small>Email</small><a href="mailto:anshtyagi746@gmail.com">anshtyagi746@gmail.com</a></div>
+      <div class="contact-tile"><small>Response</small><a href="#contact">Let's discuss your goal ↗</a></div>
+    </div>
+    <form class="contact-form" id="contactForm">
+      <input id="contactName" required placeholder="Your name">
+      <input id="contactBusiness" placeholder="Business / brand">
+      <input id="contactPhone" required placeholder="Phone / WhatsApp">
+      <input id="contactBudget" placeholder="Approx. monthly ad budget">
+      <textarea id="contactGoal" required placeholder="What do you want to grow?"></textarea>
+      <button type="submit">Send enquiry on WhatsApp ↗</button>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div>© 2026 <strong>THEANCHORPOINT</strong></div>
+  <div>Digital Growth · Performance · Creative · Web</div>
+  <div>Built for movement ↗</div>
+</footer>
+
+<div class="floating-tag"><i></i> Available for projects</div>
+
+<div class="contact-dock">
+  <div class="dock-status"><span></span> Online</div>
+  <div class="dock-label">Need growth?</div>
+  <a href="#contact" class="dock-main">Let's talk <b>↗</b></a>
+  <div class="dock-actions">
+    <a href="tel:+919311703705" aria-label="Call">☎</a>
+    <a href="https://wa.me/919311703705?text=Hi%20THEANCHORPOINT%2C%20I%20want%20to%20discuss%20a%20project." target="_blank" rel="noopener" aria-label="WhatsApp">WA</a>
+    <a href="mailto:anshtyagi746@gmail.com" aria-label="Email">@</a>
+  </div>
+</div>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+const loader = document.querySelector('.loader');
+const loaderLine = document.querySelector('.loader-line span');
+const loaderBrand = document.querySelector('.loader-brand');
+
+gsap.to(loaderLine,{width:"100%",duration:1.35,ease:"power3.inOut"});
+gsap.to(loaderBrand,{opacity:0.35,duration:.65,yoyo:true,repeat:1});
+gsap.to(loader,{yPercent:-100,duration:1.1,delay:1.5,ease:"power4.inOut",onComplete:()=>loader.remove()});
+
+let lenis;
+if(window.Lenis){
+  lenis = new Lenis({duration:1.15,smoothWheel:true,lerp:.085});
+  lenis.on('scroll',ScrollTrigger.update);
+  gsap.ticker.add((time)=>lenis.raf(time*1000));
+  gsap.ticker.lagSmoothing(0);
+}
+
+const cursor = document.querySelector('.cursor');
+const ring = document.querySelector('.cursor-ring');
+window.addEventListener('mousemove',(e)=>{
+  gsap.to(cursor,{x:e.clientX,y:e.clientY,duration:.08});
+  gsap.to(ring,{x:e.clientX,y:e.clientY,duration:.32,ease:"power3.out"});
+});
+document.querySelectorAll('a,.magnetic,.service,.work-card').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('cursor-big'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('cursor-big'));
+});
+document.querySelectorAll('.magnetic').forEach(el=>{
+  el.addEventListener('mousemove',(e)=>{
+    const r=el.getBoundingClientRect(), x=e.clientX-r.left-r.width/2, y=e.clientY-r.top-r.height/2;
+    gsap.to(el,{x:x*.18,y:y*.18,duration:.35});
+  });
+  el.addEventListener('mouseleave',()=>gsap.to(el,{x:0,y:0,duration:.5}));
+});
+
+gsap.to('.progress',{scaleX:1,ease:"none",scrollTrigger:{start:"top top",end:"bottom bottom",scrub:.2}});
+
+gsap.utils.toArray('.reveal').forEach((el)=>{
+  gsap.fromTo(el,{autoAlpha:0,y:55},{autoAlpha:1,y:0,duration:1,ease:"power3.out",scrollTrigger:{trigger:el,start:"top 88%",once:true}});
+});
+
+gsap.from('.hero h1 .word span',{yPercent:120,opacity:0,stagger:.12,duration:1.15,delay:1.6,ease:"power4.out"});
+gsap.from('.hero-orb',{scale:.65,opacity:0,duration:1.7,delay:1.55,ease:"power3.out"});
+gsap.to('.hero-orb',{y:70,rotation:15,scrollTrigger:{trigger:'.hero',start:"top top",end:"bottom top",scrub:1}});
+
+document.querySelectorAll('[data-count]').forEach(el=>{
+  const target=Number(el.dataset.count);
+  const obj={v:0};
+  ScrollTrigger.create({
+    trigger:el,start:"top 85%",once:true,
+    onEnter:()=>{
+      gsap.to(obj,{v:target,duration:1.7,ease:"power2.out",onUpdate:()=>{
+        const v=Math.round(obj.v);
+        el.textContent = target===360 ? v+"°" : v+"/7";
+      }});
+    }
+  });
+});
+
+document.querySelectorAll('.work-card').forEach(card=>{
+  card.addEventListener('mousemove',(e)=>{
+    const r=card.getBoundingClientRect();
+    const rx=((e.clientY-r.top)/r.height-.5)*-5;
+    const ry=((e.clientX-r.left)/r.width-.5)*5;
+    gsap.to(card,{rotationX:rx,rotationY:ry,transformPerspective:900,duration:.35});
+  });
+  card.addEventListener('mouseleave',()=>gsap.to(card,{rotationX:0,rotationY:0,duration:.6}));
+});
+
+document.querySelectorAll('.service').forEach((row,i)=>{
+  row.addEventListener('mousemove',(e)=>{
+    const r=row.getBoundingClientRect();
+    const x=e.clientX-r.left;
+    row.style.setProperty('--mx',x+'px');
+  });
+});
+
+const hero = document.querySelector('.hero');
+hero.addEventListener('mousemove',(e)=>{
+  const x=(e.clientX/window.innerWidth-.5);
+  const y=(e.clientY/window.innerHeight-.5);
+  gsap.to('.hero-orb',{x:x*35,y:y*35,duration:1.2,ease:"power3.out"});
+  gsap.to('.hero-grid',{x:x*-18,y:y*-12,duration:1.2,ease:"power3.out"});
+});
+
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const target=document.querySelector(a.getAttribute('href'));
+    if(target){e.preventDefault(); if(lenis) lenis.scrollTo(target,{offset:-40}); else target.scrollIntoView({behavior:"smooth"});}
+  });
+});
+
+document.querySelectorAll('.article-open').forEach(link=>{
+  link.addEventListener('click',e=>{
+    e.preventDefault();
+    const id=link.dataset.article;
+    document.getElementById(id).classList.add('open');
+    document.body.style.overflow='hidden';
+  });
+});
+document.querySelectorAll('.article-detail').forEach(modal=>{
+  modal.addEventListener('click',e=>{
+    if(e.target===modal || e.target.classList.contains('article-close')){
+      modal.classList.remove('open');
+      document.body.style.overflow='';
+    }
+  });
+});
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    document.querySelectorAll('.article-detail.open').forEach(m=>m.classList.remove('open'));
+    document.body.style.overflow='';
+  }
+});
+
+document.getElementById('contactForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const name=document.getElementById('contactName').value.trim();
+  const business=document.getElementById('contactBusiness').value.trim();
+  const phone=document.getElementById('contactPhone').value.trim();
+  const budget=document.getElementById('contactBudget').value.trim();
+  const goal=document.getElementById('contactGoal').value.trim();
+  const text=`Hi THEANCHORPOINT, I want to discuss a digital marketing project.%0A%0AName: ${encodeURIComponent(name)}%0ABusiness: ${encodeURIComponent(business)}%0APhone: ${encodeURIComponent(phone)}%0AAd Budget: ${encodeURIComponent(budget)}%0AGoal: ${encodeURIComponent(goal)}`;
+  window.open(`https://wa.me/919311703705?text=${text}`,'_blank');
+});
+
+</script>
+</body>
+</html>

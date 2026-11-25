@@ -42,3 +42,10 @@ Titles and descriptions are unique per page, with canonical and Open Graph tags.
 - Header/footer and form/WhatsApp behavior are in `assets/js/main.js`.
 - Contact details are in `assets/js/config.js`.
 
+
+
+## Theme update
+Default visual theme uses dark charcoal + wine/burgundy accents. The header theme button toggles a warm ivory + wine light theme and remembers the preference in the browser.
+
+## GitHub Pages custom domain
+A `CNAME` file is included for `theanchorpoint.store`. In GitHub Pages settings, set the same custom domain and configure DNS with the records shown by GitHub. HTTPS can be enabled after DNS verifies.
